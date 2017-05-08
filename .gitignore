@@ -1,5 +1,7 @@
 api-gateway/vendor/
+api-gateway/cache/
 node_modules/
 microservice-monitor-server/node_modules/
 microservice-monitor/node_modules/
 user/vendor/
+user/var/cache
