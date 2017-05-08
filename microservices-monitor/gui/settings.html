@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="../resources/IconLogo.png">
+    <style>
+        body {
+            font-family: "Arial", "Helvetica", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+            background-color: #FFF;
+            padding: 10px 20px;
+            color: #525252;
+            margin: 0;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 28px;
+            margin: 5px 0 20px;
+        }
+
+        h4 {
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        hr {
+            margin: -5px 0 0;
+            border: none;
+            border-top: 1px solid #DDD;
+        }
+
+        blockquote {
+            margin-left: 10px;
+        }
+
+        select {
+            font-family: inherit;
+            width: 176px;
+            height: 30px;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 5px 14px 4px;
+            margin-top: 5px;
+            color: #525252;
+            border: 1px solid #ededed;
+            overflow: hidden;
+            background-color: white;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        select:focus {
+            outline: none;
+        }
+
+        button {
+            position: absolute;
+            z-index: 20;
+            top: 10px;
+            right: 20px;
+            font: inherit;
+            padding: 5px 14px 4px;
+            margin: 10px 0 10px;
+            color: #FFF;
+            border: 1px solid #4cae4c;
+            background: #5CB85C;
+            text-align: center;
+            cursor: pointer;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        button:hover,button:active {
+            border: 1px solid #4cae4c;
+            background: #63bb63;
+        }
+    </style>
+    <script>
+        window.onbeforeunload = save;
+        var fs = require("fs");
+        var path = require("path");
+        var locale = require("../resources/lang.json");
+        var settings = require("../settings.json");
+        var lang = settings.lang;
+        var settingsPath = path.join(__dirname, "../", "settings.json");
+        var settingsFile = {"lang": "en", "min_alert": "35", "first_run": false, "enable_notifications": true, "dev_mode": true};
+
+        function save() {
+            try {
+                var form = document.getElementById("settings");
+                var settings = {};
+                settings["lang"] = form["lang"].value;
+                //settings["min_alert"] = form["min_alert"].value;
+                settings["first_run"] = false;
+                settings["enable_notifications"] = form["enable_notifications"].checked;
+                settings["dev_mode"] = form["dev_mode"].checked;
+                fs.writeFile(settingsPath, JSON.stringify(settings));
+            } catch(err) {
+                alert("There was an error saving your settings: " + err);
+                console.error("Error: " + err);
+            } finally {
+                alert(locale[lang].setup.restart);
+                console.log("Success: Settings Saved.")
+                window.close();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (lang === "en") document.getElementById("lang_en").checked = true;
+            else if (lang === "ro") document.getElementById("lang_ro").checked = true;
+            //document.getElementById("min_alert").value = settings.min_alert;
+            if (settings.enable_notifications) document.getElementById("enable_notifications").checked = true;
+            if (settings.dev_mode) document.getElementById("dev_mode").checked = true;
+
+            document.getElementById("title").innerHTML = locale[lang].setup.settings;
+            //document.getElementById("save").innerHTML = locale[lang].setup.save;
+            document.getElementById("enable1").innerHTML = locale[lang].setup.enable;
+            document.getElementById("enable2").innerHTML = locale[lang].setup.enable;
+            document.getElementById("lang_title").innerHTML = locale[lang].setup.language;
+            document.getElementById("lang_eng").innerHTML = locale[lang].setup.english;
+            document.getElementById("lang_rom").innerHTML = locale[lang].setup.romanian;
+            /*document.getElementById("min_title").innerHTML = locale[lang].setup.min_alert.title;
+            document.getElementById("min_line1").innerHTML = locale[lang].setup.min_alert.line1;
+            document.getElementById("min_line2").innerHTML = locale[lang].setup.min_alert.line2;*/
+            document.getElementById("enable_notifications_title").innerHTML = locale[lang].setup.enable_notifications.title;
+            document.getElementById("enable_notifications_line1").innerHTML = locale[lang].setup.enable_notifications.line1;
+            document.getElementById("enable_notifications_line2").innerHTML = locale[lang].setup.enable_notifications.line2;
+            document.getElementById("dev_title").innerHTML = locale[lang].setup.dev_mode.title;
+            document.getElementById("dev_line1").innerHTML = locale[lang].setup.dev_mode.line1;
+            document.getElementById("dev_line2").innerHTML = locale[lang].setup.dev_mode.line2;
+        });
+    </script>
+</head>
+<body>
+    <h2 id="title">Settings</h2>
+    <hr>
+
+    <form action="javascript:save()" id="settings">
+        <h4><span id="lang_title">Language</a></h4>
+        <blockquote>
+            <label><input type="radio" name="lang" id="lang_en" value="en"> <span id="lang_eng">English</span></label><br>
+            <label><input type="radio" name="lang" id="lang_ro" value="ro"> <span id="lang_rom">Romanian</span></label>
+        </blockquote>
+
+        <!-- <h4 id="min_title">{min_title}</h4>
+
+        <p><span id="min_line1">{min_line1}</span><br>
+            <span id="min_line2">{min_line2}</span></p>
+
+        <select name="min_alert" id="min_alert">
+            <option value="35">3.5</option>
+            <option value="40">4.0</option>
+            <option value="45">4.5</option>
+            <option value="50">5.0</option>
+            <option value="55">5.5</option>
+            <option value="60">6.0</option>
+            <option value="65">6.5</option>
+            <option value="70">7.0</option>
+        </select> -->
+
+        <br><hr>
+
+        <h4 id="enable_notifications_title">{enable_notifications_title}</h4>
+        <p><span id="enable_notifications_line1">{enable_notifications_line1}</span><br>
+        <span id="enable_notifications_line2">{enable_notifications_line2}</span></p>
+
+        <label><input type="checkbox" name="enable_notifications" id="enable_notifications"> <span id="enable1">Enable</span></label>
+
+        <br>
+
+        <h4 id="dev_title">{dev_title}}</h4>
+        <p><span id="dev_line1">{dev_line1}</span><br>
+        <span id="dev_line2">{dev_line2}</span></p>
+
+        <label><input type="checkbox" name="dev_mode" id="dev_mode"> <span id="enable2">Enable</span></label>
+
+        <!--<button value="submit" id="save">Save</button>-->
+    </form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+api-gateway/vendor/
+node_modules/
+microservice-monitor-server/node_modules/
+microservice-monitor/node_modules/
+user/vendor/

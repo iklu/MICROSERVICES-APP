@@ -1,0 +1,113 @@
+<!doctype html>
+<html ng-app="App">
+  <head>
+    <meta charset="utf-8">
+    <title>Electron Angular Boilerplate</title>
+
+    <link href="./stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/photon.css">
+    <link rel="stylesheet" href="./modules/models/client/vendors/jquery.context-menu/index.css">
+    <link rel="stylesheet" href="./modules/models/client/vendors/jquery.terminal/index.css">
+    <link rel="stylesheet" href="./node_modules/fixed-data-table-contextmenu/dist/fixed-data-table.css">
+
+    <script src="vendor/electron_boilerplate/env_config.js"></script>
+    <script src="vendor/electron_boilerplate/context_menu.js"></script>
+    <script src="vendor/electron_boilerplate/external_links.js"></script>
+    <script src="./window/menu/menu.js"></script>
+       <script src=" https://fb.me/react-0.14.6.js"></script>
+    <script src="https://fb.me/react-dom-0.14.6.js"></script>
+
+  </head>
+  <body ng-controller="indexController">  
+    <div flex layout="column" tabIndex="-1" role="main">    
+        <md-content flex id="content">
+            <div class="window">
+                <header class="toolbar toolbar-header">
+                    <div class="toolbar-actions">
+                        <div class="btn-group">
+                        <button class="btn btn-default">
+                            <span class="icon icon-tools"></span>
+                        </button>
+                        <button class="btn btn-default active">
+                            <span class="icon icon-cloud"></span>
+                        </button>
+                        <button class="btn btn-default">
+                            <span id="basic" class="icon icon-megaphone"></span>
+                        </button>
+                        <button class="btn btn-default">
+                            <span class="icon icon-shuffle"></span>
+                        </button>
+                        </div>
+
+                        <button class="btn btn-default">
+                        <span class="icon icon-home icon-text"></span>
+                        Filters
+                        </button>
+
+                        <button class="btn btn-default btn-dropdown pull-right">
+                        <span class="icon icon-megaphone"></span>
+                        </button>
+                    </div>
+                </header>
+                <div class="window-content">
+                    <div class="pane-group">
+                    <div class="pane-sm sidebar">
+                         <nav class="nav-group">
+                            <h5 class="nav-group-title">Menu</h5>
+                            <span class="nav-group-item">
+                            <span class="icon icon-home"></span>
+                            Home
+                            </span>
+                            <span class="nav-group-item active" ng-click="openMemory()">
+                            <span class="icon icon-tools"></span>
+                            Show Memory
+                            </span>
+                            <span class="nav-group-item">
+                            <span class="icon icon-download"></span>
+                            Download
+                            </span>
+                            <span class="nav-group-item"  ng-click="showList()">
+                            <span class="icon icon-folder"></span>
+                            Coupons
+                            </span>    
+                            <span class="nav-group-item"  ng-click="showList()">
+                            <span class="icon icon-ticket"></span>
+                            Active Collab Tickets
+                            </span>
+                            <span class="nav-group-item"  ng-click="showRedis()">
+                            <span class="icon icon-database"></span>
+                            Redis Manager
+                            </span>    
+                            <span class="nav-group-item"  ng-click="showList()">
+                            <span class="icon icon-bell"></span>
+                            Projects Errors Log
+                            </span>
+                            <span class="nav-group-item"  ng-click="showMedis()">
+                            <span class="icon icon-pencil"></span>
+                            Your Work
+                            </span>                       
+                        </nav>
+                    </div>
+                    <div id="main" class="pane">
+                        <ng-view>                          
+                        </ng-view>    
+                    </div>
+                    </div>
+                </div>
+                <footer class="toolbar toolbar-footer">
+                    <h1 class="title">Footer</h1>
+                </footer>
+                </div>
+        </md-content>
+    </div>
+    <script src="app.js"></script>
+    <script src="./window/notifier/window.js"></script>
+    <script src="./window/frame/frameless_window.js"></script>
+    <script src="./window/frame/titlebar.js"></script>
+    <!--REACT-->
+    <script src="./modules/models/MYCOMPONENT.js"></script>
+
+  </body>
+</html>

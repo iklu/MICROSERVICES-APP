@@ -1,0 +1,44 @@
+{
+  "name": "mini-code-edit",
+  "productName": "App",
+  "main"    : "main.js",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "repository": "user/repo",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "scripts": {
+    "test": "xo",
+    "start": "electron .",
+    "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
+  },
+  "files": [
+    "index.js",
+    "index.html",
+    "index.css"
+  ],
+  "keywords": [
+    "electron-app",
+    "electron"
+  ],
+  "dependencies": {
+    "electron-debug": "^0.5.0",
+    "electron-editor-context-menu": "^1.1.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^6.0.0",
+    "electron-prebuilt": "^0.37.4",
+    "xo": "^0.13.0"
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node",
+      "browser"
+    ]
+  }
+}

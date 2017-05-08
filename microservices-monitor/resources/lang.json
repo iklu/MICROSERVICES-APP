@@ -1,0 +1,122 @@
+{
+    "en": {
+        "title": "Meineke",
+        "description": "Earthquake Early Warning Notifier",
+        "connect": "Connected to Server.",
+        "disconnect": "Failed to Connect to Server. Retrying...",
+        "cancelled": "This Notification has been cancelled.",
+        "conn_refused": "Server Connection Denied. Try updating Meineke.",
+        "settings": "Settings",
+        "error": "Error",
+        "menu": {
+            "window": "Open Window",
+            "about": "About",
+            "help": "Support",
+            "contribute": "Contribute",
+            "bug": "Report a Bug",
+            "updates": "Check for Updates",
+            "test": "Trigger An Event",
+            "devtools": "Debug Tools",
+            "settings": "Preferences",
+            "quit": "Quit"
+        },
+        "setup": {
+            "settings": "Settings",
+            "restart": "Please restart Meineke to apply your changes.",
+            "language": "Language",
+            "english": "English",
+            "romanian": "Romanian",
+            "enable": "Enable",
+            "save": "Save",
+            "chose_notifications": {
+                "title": "Minimum Alert Magnitude",
+                "line1": "Choose a Minimum Magnitude Size to be notified of.",
+                "line2": ""
+            },
+            "enable_notifications": {
+                "title": "Notifications",
+                "line1": "If enabled, you will receive notifications from server.",
+                "line2": "(The notifications will be receive from a specific channel)"
+            },
+            "dev_mode": {
+                "title": "Development Mode",
+                "line1": "If enabled, you will have access to debug tools that are using during development.",
+                "line2": "(Only enable this option if you know what you're doing!)"
+            }
+        },
+        "pushNotification": {
+            "audience":"audience",
+            "device_types":"device_types",
+            "notification":{
+                "android": {
+                    "alert":"alert",
+                    "extra":{
+                        "type":"type",
+                        "content":"content",
+                        "services":"services"
+                    }
+                }
+            }
+        }
+    },
+    "ro": {
+        "title": "Meineke",
+        "description": "Aplicatie de demonstratie",
+        "connect": "Conexiunea la server reusita.",
+        "disconnect": "Eroare la conexiunea de server. Incercand...",
+        "cancelled": "Aceasta notificare a fos amanata.",
+        "conn_refused": "Server Connection Denied. Try updating Meineke.",
+        "settings": "Setari",
+        "error": "Eroare",
+        "menu": {
+            "window": "Deschide Fereastra",
+            "about": "Despre",
+            "help": "Suport",
+            "contribute": "Contribue",
+            "bug": "Raporteaza un gandac",
+            "updates": "Verifica pentru 'updates'",
+            "test": "Testeaza un event",
+            "devtools": "Debug Tools",
+            "settings": "Preferinte",
+            "quit": "Inchide"
+        },
+        "setup": {
+            "settings": "Setari",
+            "restart": "Please restart Meineke to apply your changes.",
+            "language": "Language",
+            "english": "Engleza",
+            "romanian": "Romana",
+            "enable": "Activeaza",
+            "save": "Salveaza",
+            "chose_notifications": {
+                "title": "Minimum Alert Magnitude",
+                "line1": "Choose a Minimum Magnitude Size to be notified of.",
+                "line2": ""
+            },
+            "enable_notifications": {
+                "title": "Notificari",
+                "line1": "Daca sunt activate, veti primi notificari de la server",
+                "line2": "(Notificarile vor fi primite de la un canal specific!)"
+            },
+            "dev_mode": {
+                "title": "Mod de dezvoltare",
+                "line1": "Daca este activat , ve-ti avea acces la uneltele de dezvoltare" ,
+                "line2": "(Activati aceasta optiunde doar daca stiti ce faceti!)"
+            }
+        },
+        "pushNotification": {
+            "audience":"audience",
+            "device_types":"device_types",
+            "notification":{
+                "android": {
+                    "alert":"alert",
+                    "extra":{
+                        "type":"type",
+                        "content":"content",
+                        "services":"services"
+                    }
+                }
+            }
+        }
+    }
+}
