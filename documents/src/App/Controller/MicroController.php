@@ -16,9 +16,6 @@ class MicroController extends Controller
     {
         $number = mt_rand(0, 100);
 
-        $msg = array('user_id' => 1235, 'image_path' => '/path/to/new/pic.png');
-        $this->get('old_sound_rabbit_mq.upload_picture_producer')->publish(serialize($msg));
-
         return new Response(
             '<html><body>Lucky number: '.$number.'</body></html>'
         );

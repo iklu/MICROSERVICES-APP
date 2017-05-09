@@ -1,0 +1,6 @@
+parameters:
+  picture_service_class: App\Service\PictureService
+
+services:
+  picture_service:
+    class: "%picture_service_class%"

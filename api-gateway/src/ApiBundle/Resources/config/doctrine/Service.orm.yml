@@ -1,0 +1,25 @@
+ApiBundle\Entity\Service:
+    type: entity
+    table: null
+    repositoryClass: ApiBundle\Repository\ServiceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        serviceId:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+            nullable: true
+        serviceUrl:
+            type: string
+            length: 255
+        sourceUrl:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
