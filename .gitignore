@@ -3,7 +3,7 @@ api-gateway/cache/
 node_modules/
 microservice-monitor-server/node_modules/
 microservice-monitor/node_modules/
-user/vendor/
-user/var/cache
+order/vendor/
+order/var/cache
 documents/vendor/
 documents/var/cache

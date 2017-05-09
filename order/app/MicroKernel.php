@@ -24,6 +24,8 @@ class MicroKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
+            new Application\FrontendBundle\FrontendBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
         );
 
         if ($this->getEnvironment() == 'dev') {
@@ -55,7 +57,7 @@ class MicroKernel extends Kernel
         }
 
         // load the annotation routes
-        $routes->import(__DIR__.'/../src/App/Controller/', '/', 'annotation');
+        $routes->import(__DIR__.'/../src/Application/FrontendBundle/Controller/', '/', 'annotation');
     }
 
     // optional, to use the standard Symfony cache directory

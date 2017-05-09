@@ -1,0 +1,30 @@
+<?php
+namespace Application\FrontendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="order_log")
+ */
+class OrderLog
+{
+    const CREATE = 'Create';
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="smallint")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(name="action", type="string", length=10)
+     */
+    private $action;
+
+    /**
+     * @ORM\Column(name="message", type="json_array")
+     */
+    private $message;
+}

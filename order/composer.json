@@ -2,7 +2,9 @@
     "require": {
         "symfony/symfony": "^3.2",
         "sensio/framework-extra-bundle": "^3.0",
-        "php-amqplib/rabbitmq-bundle": "^1.12"
+        "php-amqplib/rabbitmq-bundle": "^1.12",
+        "doctrine/doctrine-bundle": "^1.6",
+        "symfony/monolog-bundle": "^3.1"
     },
      "autoload": {
         "psr-4": {
