@@ -1,7 +1,7 @@
+application_api:
+    resource: "@ApplicationApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
 api:
     resource: '.'
     type:     'api_platform'
-
-app:
-    resource: '@AppBundle/Action/'
-    type:     'annotation'

@@ -11,14 +11,19 @@ class AppKernel extends Kernel
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
-
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Dunglas\ActionBundle\DunglasActionBundle(),
             new ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
-            new ApiBundle\ApiBundle(),
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
+            new Application\AdminBundle\ApplicationAdminBundle(),
+            new Application\ApiBundle\ApplicationApiBundle(),
+            new Application\InfrastuctureBundle\ApplicationInfrastuctureBundle(),
+            new Application\DataBundle\ApplicationDataBundle(),
+            new Application\EmailBundle\ApplicationEmailBundle(),
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

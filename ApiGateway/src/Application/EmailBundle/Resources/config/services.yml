@@ -1,0 +1,12 @@
+parameters:
+    email.notification.class: Application\EmailBundle\Mailer\Mailer
+    email.spool.class: Application\EmailBundle\Services\Spool
+
+services:
+    email.notification:
+        class: "%email.notification.class%"
+        arguments: ["@mailer", "@templating", "%email%"]
+
+    email.spool_emails:
+        class: "%email.spool.class%"
+        arguments: ["@service_container"]

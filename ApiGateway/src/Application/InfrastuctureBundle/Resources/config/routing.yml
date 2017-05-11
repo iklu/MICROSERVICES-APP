@@ -1,0 +1,3 @@
+application_infrastucture_homepage:
+    path:     /
+    defaults: { _controller: ApplicationInfrastuctureBundle:Default:index }

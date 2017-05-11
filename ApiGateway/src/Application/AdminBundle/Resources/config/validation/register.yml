@@ -1,0 +1,31 @@
+Application\AdminBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: email
+            message: "The email already exists."
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: username
+            message: "The username already exists."
+    properties:
+        username:
+            - NotBlank:
+                message: "The Username is required."
+        email:
+            - NotBlank:
+                message: "The Email is required."
+            - Email:
+                message: "The Email is invalid."
+        password:
+            - NotBlank:
+                message: "The Password is required."
+            - Length:
+                min: 2
+                max: 30
+                minMessage: "at least"
+                maxMessage: "max ch"
+        confirmPassword:
+            - NotBlank:
+                message: "The Repeated Password is required."
+    getters:
+        passwordEqual:
+            - 'IsFalse': { message: 'The Repeated Password fields must match.' }
