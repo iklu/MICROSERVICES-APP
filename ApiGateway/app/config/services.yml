@@ -1,16 +1,4 @@
 services:
-    wsse.security.authentication.provider:
-        class: Application\AdminBundle\Security\WSSE\Authentication\Provider\WsseProvider
-        arguments:
-            - '' # User Provider
-            - '@cache.app'
-        public: false
-
-    wsse.security.authentication.listener:
-        class: Application\AdminBundle\Security\WSSE\Firewall\WsseListener
-        arguments: ['@security.token_storage', '@security.authentication.manager']
-        public: false
-
     jwt_token_authenticator:
         class: Application\AdminBundle\Security\JWT\JwtTokenAuthenticator
         arguments: ['@lexik_jwt_authentication.encoder.default', '@doctrine.orm.entity_manager']

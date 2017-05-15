@@ -1,0 +1,4 @@
+curl -X POST http://localhost/MICROSERVICES-APP/ApiGateway/web/api/login_check -d _username=apidoc -d _password=develop
+curl -X POST http://localhost/MICROSERVICES-APP/ApiGateway/web/api/login_check -d _username=Ovidiu -d _password=parola86
+
+https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#getting-started

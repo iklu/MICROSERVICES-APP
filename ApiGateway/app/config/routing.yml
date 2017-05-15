@@ -1,7 +1,10 @@
 application_api:
-    resource: "@ApplicationApiBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
+    prefix:   /api
 
 api:
     resource: '.'
     type:     'api_platform'
+
+api_login_check:
+    path: /api/login_check

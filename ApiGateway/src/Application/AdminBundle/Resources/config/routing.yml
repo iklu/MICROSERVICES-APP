@@ -81,3 +81,9 @@ get_profile_action:
     methods:  ['GET']
     defaults:
         _controller: 'ApplicationAdminBundle:Security:getProfile'
+
+get_token_action:
+    path: '/secured/token/'
+    methods:  ['POST']
+    defaults:
+        _controller: 'ApplicationAdminBundle:Token:getToken'
