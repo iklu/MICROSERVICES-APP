@@ -1,3 +1,4 @@
 application_api_homepage:
-    path:     /
-    defaults: { _controller: ApplicationApiBundle:Default:index }
+    path:     /secured/token
+    defaults: { _controller: ApplicationApiBundle:Default:getToken }
+    methods:  [POST]
