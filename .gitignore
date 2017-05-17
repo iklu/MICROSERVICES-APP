@@ -1,5 +1,5 @@
 ApiGateway/vendor/
-ApiGateway/cache/
+ApiGateway/var/cache/
 Process/microservice-monitor-server/node_modules/
 Process/microservice-monitor/node_modules/
 Microservices/data-provider/vendor/
@@ -8,3 +8,11 @@ Microservices/documents/vendor/
 Microservices/documents/var/cache/
 Microservices/orders/vendor/
 Microservices/orders/var/cache/
+Microservices/cron-jobs/var/cache/
+Microservices/cron-jobs/vendor/
+Microservices/logger/var/cache/
+Microservices/logger/vendor/
+Microservices/notifications/var/cache/
+Microservices/notifications/vendor/
+Microservices/send-emails/var/cache/
+Microservices/send-emails/vendor/

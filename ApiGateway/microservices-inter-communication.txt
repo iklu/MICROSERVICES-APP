@@ -1,0 +1,8 @@
+https://www.nginx.com/blog/building-microservices-inter-process-communication
+
+when the comunication takes over true http/rest allways must know 
+
+
+    It only directly supports the request/response style of interaction. You can use HTTP for notifications but the server must always send an HTTP response.
+    Because the client and service communicate directly (without an intermediary to buffer messages), they must both be running for the duration of the exchange.
+    The client must know the location (i.e., the URL) of each service instance. As described in the previous article about the API Gateway, this is a non‑trivial problem in a modern application. Clients must use a service discovery mechanism to locate service instances.

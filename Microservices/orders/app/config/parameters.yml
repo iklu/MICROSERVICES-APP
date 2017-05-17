@@ -18,3 +18,5 @@ parameters:
     rabbit_mq_port: 5672
     rabbit_mq_user: guest
     rabbit_mq_pswd: guest
+    rabbitmq.queue.order_create.routing_keys:
+        - "order_create"

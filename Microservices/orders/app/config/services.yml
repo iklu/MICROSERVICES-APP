@@ -1,4 +1,5 @@
 services:
+    
     application_frontend.controller.order:
         class: Application\FrontendBundle\Controller\OrderController
         arguments:
@@ -16,14 +17,3 @@ services:
             - { name: kernel.event_listener, event: application_frontend.event.order_create, method: onOrderCreate }
         arguments:
             - "@application_frontend.producer.order_create"
-
-    application_frontend.producer.order_create:
-        class: Application\FrontendBundle\Producer\OrderCreateProducer
-        arguments:
-            - "@old_sound_rabbit_mq.order_create_producer"
-
-    application_frontend.consumer.order_create:
-        class: Application\FrontendBundle\Consumer\OrderCreateConsumer
-        arguments:
-            - "@doctrine.orm.entity_manager"
-            # - "@logger"

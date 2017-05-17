@@ -3,11 +3,29 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: consumers.yml }
+    - { resource: producers.yml }
+    - { resource: services.yml }
 framework:
     secret: S0ME_SECRET
     templating:
         engines: ['twig']
     profiler: { only_exceptions: false }
+
+monolog:
+    handlers:
+        # this "file_log" key could be anything
+        file_log:
+            type: stream
+            # log to var/logs/(environment).log
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            # log *all* messages (debug is lowest level)
+            level: debug
+
+        syslog_handler:
+            type: syslog
+            # log error-level messages and higher
+            level: error
 
 # Doctrine Configuration (used to access databases and manipulate their information)
 # Doctrine Configuration
@@ -38,19 +56,54 @@ doctrine:
 old_sound_rabbit_mq:
     connections:
         default:
-            host:     %rabbit_mq_host%
-            port:     %rabbit_mq_port%
-            user:     %rabbit_mq_user%
-            password: %rabbit_mq_pswd%
-            vhost:    /
-            lazy:     true
+            host:        'localhost'
+            port:        5672
+            user:        'guest'
+            password:    'guest'
+            vhost:       '/'
+            lazy:        true
+            connection_timeout: 3
+            read_write_timeout: 3
+
+            # requires php-amqplib v2.4.1+ and PHP5.4+
+            keepalive: false
+
+            # requires php-amqplib v2.4.1+
+            heartbeat: 0
+
+    #RabbitMQ direct exchange example with symfony including 1 Producer & 1 Exchange & 1 Queue & N Worker & 1 Consumer
+    # producers:
+    #     order_create:
+    #         connection:       default
+    #         exchange_options: { name: order_create_ex, type: direct }
+    #         queue_options:    {name: 'order_create' , routing_keys: "%rabbitmq.queue.order_create.routing_keys%" }
+    # consumers:
+    #     order_create:
+    #         connection:       default
+    #         exchange_options: {name: order_create_ex, type: direct }
+    #         queue_options:    {name: 'order_create', routing_keys: "%rabbitmq.queue.order_create.routing_keys%" }
+    #         callback:         application_frontend.consumer.order_create
+            
+    # RabbitMQ direct example with symfony including 1 Producer & 1 Exchange & 2 Queue & N Worker & 2 Consumer
     producers:
         order_create:
             connection:       default
-            exchange_options: { name: 'order_create_ex', type: topic }
+            exchange_options: { name: order_create_ex, type: direct }
     consumers:
-        order_create:
+        order_create_bmw:
             connection:       default
-            exchange_options: { name: 'order_create_ex', type: topic }
-            queue_options:    { name: 'order_create_qu' }
-            callback:         application_frontend.consumer.order_create
+            exchange_options: { name: order_create_ex, type: direct }
+            queue_options:
+                name: order_create_bmw_qu
+                routing_keys:
+                    - bmw
+            callback:         application_frontend.consumer.order_create_bmw
+        order_create_audi_mercedes:
+            connection:       default
+            exchange_options: { name: order_create_ex, type: direct }
+            queue_options:
+                name: order_create_audi_mercedes_qu
+                routing_keys:
+                    - audi
+                    - mercedes
+            callback:         application_frontend.consumer.order_create_audi_mercedes

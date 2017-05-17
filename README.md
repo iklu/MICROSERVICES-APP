@@ -13,3 +13,23 @@ TODO:
 http://www.inanzzz.com/index.php/post/3coy/rabbitmq-topic-exchange-example-with-symfony-including-1-producer-1-exchange-1-queue-n-worker-1-consumer
 
 https://github.com/sensiolabs/SensioFrameworkExtraBundle/issues/225
+
+
+
+API-GATEWAY:
+https://github.com/cer/event-sourcing-examples/tree/master/java-spring/api-gateway-service
+
+API-GATEWAY-SERVICE-REGISTRY:
+https://github.com/johanhaleby/lab-service-registry
+
+
+Some uses
+
+- notificari
+- email sending
+- logger
+- checkout
+- special offers
+- catalogs
+- categories
+- images

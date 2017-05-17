@@ -1,0 +1,6 @@
+services:
+    application_frontend.producer.order_create:
+        class: Application\FrontendBundle\Producer\OrderCreateProducer
+        arguments:
+            - "@old_sound_rabbit_mq.order_create_producer"
+            #- "%rabbitmq.queue.order_create.routing_keys%"

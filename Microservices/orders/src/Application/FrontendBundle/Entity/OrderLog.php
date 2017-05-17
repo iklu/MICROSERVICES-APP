@@ -11,10 +11,11 @@ class OrderLog
 {
     const CREATE = 'Create';
 
-    /**
+   /**
      * @ORM\Id
      * @ORM\Column(type="smallint")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="id_seq", initialValue=1, allocationSize=100)
      */
     private $id;
 

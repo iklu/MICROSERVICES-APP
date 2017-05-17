@@ -1,4 +1,5 @@
 <?php
+
 namespace Application\FrontendBundle\Consumer;
 
 use Application\FrontendBundle\Entity\OrderLog;
@@ -8,7 +9,7 @@ use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
-class OrderCreateConsumer implements ConsumerInterface
+class OrderCreateBmwConsumer implements ConsumerInterface
 {
     private $entityManager;
     private $logger;
@@ -19,17 +20,21 @@ class OrderCreateConsumer implements ConsumerInterface
     ) {
         $this->entityManager = $entityManager;
         $this->logger = $logger;
-        echo "order_create_consumer is listening...";
+        echo "OrderCreateBmwConsumer is listening...";
     }
 
     public function execute(AMQPMessage $message)
     {
         $body = json_decode($message->body, true);
-
+ 
         try {
             $this->log($body);
-            
+
             echo sprintf('Order create - ID:%s @ %s ...', $body['order_id'], date('Y-m-d H:i:s')).PHP_EOL;
+            echo json_encode($message).PHP_EOL;
+
+
+            //here do some extra work ex: notify by email about the order, update the stock, etc.
         } catch (Exception $e) {
             $this->logError($message, $e->getMessage());
         }
@@ -38,7 +43,7 @@ class OrderCreateConsumer implements ConsumerInterface
     private function log($message)
     {
         $log = new OrderLog();
-        $log->setAction(OrderLog::CREATE);
+        $log->setAction(OrderLog::CREATE.' '.$message['car_make']);
         $log->setMessage($message);
 
         $this->entityManager->persist($log);

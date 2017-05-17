@@ -6,14 +6,15 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="orders")
+ * @ORM\Table(name="ORDERS")
  */
 class Order
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="smallint")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="id_seq", initialValue=1, allocationSize=100)
      */
     private $id;
 

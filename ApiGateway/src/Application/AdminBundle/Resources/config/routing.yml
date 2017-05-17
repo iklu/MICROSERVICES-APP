@@ -86,4 +86,4 @@ get_token_action:
     path: '/secured/token/'
     methods:  ['POST']
     defaults:
-        _controller: 'ApplicationAdminBundle:Token:getToken'
+        _controller: 'ApplicationApiBundle:Default:getToken'

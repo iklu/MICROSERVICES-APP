@@ -9,13 +9,15 @@ class OrderCreateProducer
 {
     private $producer;
 
-    public function __construct(ProducerInterface $producer)
+    public function __construct(ProducerInterface $producer,  array $routingKeys=[])
     {
         $this->producer = $producer;
+        $this->routingKeys = $routingKeys;
     }
 
     public function add(Order $order)
     {
+
         $message = [
             'order_id' => $order->getId(),
             'customer_name' => $order->getCustomerName(),
@@ -24,6 +26,10 @@ class OrderCreateProducer
             'timestamp' => date('Y-m-d H:i:s')
         ];
 
-        $this->producer->publish(json_encode($message));
+        //single consumer
+        //$this->producer->publish(json_encode($message), $this->routingKeys[0]);
+
+        //multiple consumers and the "car_make" is the actual consumer 
+        $this->producer->publish(json_encode($message), $message['car_make']);
     }
 }

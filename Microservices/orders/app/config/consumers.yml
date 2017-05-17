@@ -1,0 +1,18 @@
+services:
+    application_frontend.consumer.order_create:
+        class: Application\FrontendBundle\Consumer\OrderCreateConsumer
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@logger"
+
+    application_frontend.consumer.order_create_bmw:
+        class: Application\FrontendBundle\Consumer\OrderCreateBmwConsumer
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@logger"
+
+    application_frontend.consumer.order_create_audi_mercedes:
+        class: Application\FrontendBundle\Consumer\OrderCreateAudiMercedesConsumer
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@logger"

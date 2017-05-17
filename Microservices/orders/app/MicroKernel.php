@@ -26,6 +26,7 @@ class MicroKernel extends Kernel
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new Application\FrontendBundle\FrontendBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
         );
 
         if ($this->getEnvironment() == 'dev') {
