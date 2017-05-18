@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Application\DataBundle\ApplicationDataBundle(),
             new Application\EmailBundle\ApplicationEmailBundle(),
             new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
+            new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

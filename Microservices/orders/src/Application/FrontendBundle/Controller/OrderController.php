@@ -33,6 +33,9 @@ class OrderController
 
         $result = $this->orderService->create(json_decode($request->getContent(), true));
 
+        // $process = new Process('php bin/console hello:word');
+        // $process->start();
+
         return new Response($result);
     }
 }

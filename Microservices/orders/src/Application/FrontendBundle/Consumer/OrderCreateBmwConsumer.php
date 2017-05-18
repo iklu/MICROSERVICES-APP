@@ -20,7 +20,7 @@ class OrderCreateBmwConsumer implements ConsumerInterface
     ) {
         $this->entityManager = $entityManager;
         $this->logger = $logger;
-        echo "OrderCreateBmwConsumer is listening...";
+        echo "Preapare Order Bmw is listening...".PHP_EOL;
     }
 
     public function execute(AMQPMessage $message)
@@ -32,6 +32,7 @@ class OrderCreateBmwConsumer implements ConsumerInterface
 
             echo sprintf('Order create - ID:%s @ %s ...', $body['order_id'], date('Y-m-d H:i:s')).PHP_EOL;
             echo json_encode($message).PHP_EOL;
+            echo sprintf('Publish message to email microservice...').PHP_EOL;
 
 
             //here do some extra work ex: notify by email about the order, update the stock, etc.

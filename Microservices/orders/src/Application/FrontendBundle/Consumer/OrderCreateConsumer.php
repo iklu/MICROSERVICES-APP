@@ -30,6 +30,7 @@ class OrderCreateConsumer implements ConsumerInterface
             $this->log($body);
             
             echo sprintf('Order create - ID:%s @ %s ...', $body['order_id'], date('Y-m-d H:i:s')).PHP_EOL;
+            echo sprintf('Publish message to email microservice...').PHP_EOL;
         } catch (Exception $e) {
             $this->logError($message, $e->getMessage());
         }

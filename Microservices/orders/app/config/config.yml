@@ -90,20 +90,20 @@ old_sound_rabbit_mq:
             connection:       default
             exchange_options: { name: order_create_ex, type: direct }
     consumers:
-        order_create_bmw:
+        prepare_order_bmw:
             connection:       default
             exchange_options: { name: order_create_ex, type: direct }
             queue_options:
-                name: order_create_bmw_qu
+                name: prepare_order_bmw_qu
                 routing_keys:
                     - bmw
-            callback:         application_frontend.consumer.order_create_bmw
-        order_create_audi_mercedes:
+            callback:         application_frontend.consumer.prepare_order_bmw
+        prepare_order_audi_mercedes:
             connection:       default
             exchange_options: { name: order_create_ex, type: direct }
             queue_options:
-                name: order_create_audi_mercedes_qu
+                name: prepare_order_audi_mercedes_qu
                 routing_keys:
                     - audi
                     - mercedes
-            callback:         application_frontend.consumer.order_create_audi_mercedes
+            callback:         application_frontend.consumer.prepare_order_audi_mercedes

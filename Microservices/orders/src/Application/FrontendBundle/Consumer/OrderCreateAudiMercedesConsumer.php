@@ -19,6 +19,7 @@ class OrderCreateAudiMercedesConsumer implements ConsumerInterface
     ) {
         $this->entityManager = $entityManager;
         $this->logger = $logger;
+       echo "Preapare Order Audi Mercedes is listening...".PHP_EOL;
     }
 
     public function execute(AMQPMessage $message)
@@ -28,7 +29,9 @@ class OrderCreateAudiMercedesConsumer implements ConsumerInterface
         try {
             $this->log($body);
 
-            echo sprintf('Order create - ID:%s @ %s ...', $body['order_id'], date('Y-m-d H:i:s')).PHP_EOL;
+            echo sprintf('Order created - ID:%s @ %s ...', $body['order_id'], date('Y-m-d H:i:s')).PHP_EOL;            
+            echo sprintf('Publish message to email microservice...').PHP_EOL;
+
             echo json_encode($message).PHP_EOL;
         } catch (Exception $e) {
             $this->logError($message, $e->getMessage());

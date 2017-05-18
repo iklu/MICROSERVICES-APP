@@ -101,3 +101,21 @@ lexik_jwt_authentication:
     public_key_path:  '%jwt_public_key_path%'
     pass_phrase:      '%jwt_key_pass_phrase%'
     token_ttl:        '%jwt_token_ttl%'
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host:        'localhost'
+            port:        5672
+            user:        'guest'
+            password:    'guest'
+            vhost:       '/'
+            lazy:        true
+            connection_timeout: 3
+            read_write_timeout: 3
+
+            # requires php-amqplib v2.4.1+ and PHP5.4+
+            keepalive: false
+
+            # requires php-amqplib v2.4.1+
+            heartbeat: 0

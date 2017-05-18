@@ -5,6 +5,9 @@ services:
         arguments:
             - "@application_frontend.service.order"
 
+    application_frontend.controller.service:
+        class: Application\FrontendBundle\Controller\ServiceController
+
     application_frontend.service.order:
         class: Application\FrontendBundle\Service\OrderService
         arguments:

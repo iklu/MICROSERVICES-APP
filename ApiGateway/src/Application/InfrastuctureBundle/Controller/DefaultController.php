@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('ApplicationInfrastuctureBundle:Default:index.html.twig');
     }
+
+    public function getConsumersAction()
+    {
+        return $this->render('ApplicationInfrastuctureBundle:Default:index.html.twig');
+    }
 }

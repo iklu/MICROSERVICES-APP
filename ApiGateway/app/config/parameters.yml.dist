@@ -1,14 +1,11 @@
-# This file is a "template" of what your parameters.yml file should look like
-# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
-# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 # This file is auto-generated during the composer install
 parameters:
-    database_driver:   oci8
-    database_host:     127.0.0.1
-    database_port:     1521
-    database_name:     'xe'
-    database_user:     'SYSTEM'
-    database_password: 'parola86'
+    database_driver: oci8
+    database_host: 127.0.0.1
+    database_port: 1521
+    database_name: xe
+    database_user: SYSTEM
+    database_password: parola86
     database_charset: AL32UTF8
 
 
@@ -20,8 +17,20 @@ parameters:
     mailer_encryption: ssl
     secret: ThisTokenIsNotSoSecretChangeIt
     cors_allow_origin: 'http://localhost'
-
+    email:
+        email_notification_from_name: noreply@example.com
+        email_notification_to: dragoiovidiu2011@gmail.com
+        email_notification_bcc: dragoiovidiu2011@gmail.com
+        sender_name: 'Demo App'
+        confirmation: dragoiovidiu2011@gmail.com
+    
     jwt_private_key_path: '%kernel.root_dir%/../var/jwt/private.pem' # ssh private key path
     jwt_public_key_path:  '%kernel.root_dir%/../var/jwt/public.pem'  # ssh public key path
     jwt_key_pass_phrase:  ''                                         # ssh key pass phrase
     jwt_token_ttl:        3600
+
+        
+    rabbit_mq_host: 127.0.0.1
+    rabbit_mq_port: 5672
+    rabbit_mq_user: guest
+    rabbit_mq_pswd: guest

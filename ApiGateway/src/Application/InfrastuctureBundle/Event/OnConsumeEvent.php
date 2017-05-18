@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\InfrastructureBundle\EventListener;
+namespace Application\InfrastructureBundle\Event;
 
 class OnConsumeEvent extends AMQPEvent
 {
